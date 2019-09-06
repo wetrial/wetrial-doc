@@ -1,4 +1,4 @@
-/* eslint-disable camelcase */
+/* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable no-case-declarations */
 /* eslint-disable default-case */
 /* eslint-disable no-multi-assign */
@@ -9,7 +9,7 @@ const himalaya = require('himalaya');
 
 // 获取用户的头像列表
 const getAvatarList = async filename => {
-  const sourcePath = 'https://github.com/ant-design/ant-design-pro-site/contributors/master';
+  const sourcePath = 'https://github.com/wetrial/wetrial-site/contributors/master';
   const url = `${sourcePath}${filename}/list`;
   const html = await fetch(url).then(res => res.text());
   const ast = himalaya.parse(html)[0].children || [];
@@ -33,13 +33,8 @@ const getAvatarList = async filename => {
   return data;
 };
 
-const getKebabCase = str => {
-  return str
-    .replace(/[A-Z]/g, letter => {
-      return `-${letter.toLowerCase()}`;
-    })
-    .replace(/\/-/g, '/');
-};
+const getKebabCase = str => str.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`)
+.replace(/\/-/g, '/');
 // Add custom fields to MarkdownRemark nodes.
 module.exports = exports.onCreateNode = async ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
@@ -54,7 +49,7 @@ module.exports = exports.onCreateNode = async ({ node, actions, getNode }) => {
       const mdFilePath = path.join(sourceInstanceName, relativePath);
       createNodeField({
         node,
-        name: `modifiedTime`,
+        name: 'modifiedTime',
         value: mtime,
       });
 

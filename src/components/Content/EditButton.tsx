@@ -8,7 +8,7 @@ const EditButton: React.FC<{
 }> = ({
   title,
   filename,
-  sourcePath = 'https://github.com/ant-design/ant-design-pro-site/edit/master',
+  sourcePath = 'https://github.com/wetrial/wetrial-site/edit/master',
 }) => (
   <Tooltip title={title}>
     <a

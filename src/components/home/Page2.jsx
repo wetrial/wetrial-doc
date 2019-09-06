@@ -35,7 +35,7 @@ function Page2({ location }) {
                 </span>
               </div>
               <div>
-                <span className="home-code-selection">❯</span> ant-design-pro{' '}
+                <span className="home-code-selection">❯</span> wetrial-site{' '}
               </div>
 
               {/* Select TypeScript */}
@@ -80,7 +80,7 @@ function Page2({ location }) {
                     </Link>
                   ),
                   ask: (
-                    <a href="https://github.com/ant-design/ant-design-pro/issues">
+                    <a href="https://github.com/wetrial/wetrial/issues">
                       <FormattedMessage id="app.home.ask" />
                     </a>
                   ),
@@ -89,7 +89,7 @@ function Page2({ location }) {
             </p>
             <div key="button" style={{ marginTop: 88 }}>
               <a
-                href="http://github.com/ant-design/ant-design-pro"
+                href="http://github.com/wetrial/wetrial"
                 target="_blank"
                 rel="noopener noreferrer"
               >

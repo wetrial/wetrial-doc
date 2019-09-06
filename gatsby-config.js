@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: 'ANT DESIGN PRO',
+    title: 'Wetrial',
     description: 'Out-of-box UI solution for enterprise applications',
     author: 'Ant Design',
-    siteUrl: `https://pro.ant.design`,
+    siteUrl: `https://dev.xxgtalk.cn`,
   },
   plugins: [
     {
@@ -65,8 +65,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Ant Design Pro',
-        short_name: 'Ant Design Pro Doc',
+        name: 'Wetrial',
+        short_name: 'Wetrial Doc',
         display: 'standalone',
         start_url: './?utm_source=homescreen',
         theme_color: '#002140',

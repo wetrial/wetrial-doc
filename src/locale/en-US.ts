@@ -30,7 +30,7 @@ export default {
     'app.home.start': 'Getting Started',
     'app.home.download': 'Download',
     'app.home.letspro': 'Run commands below, explore it!',
-    'app.home.selectpro': 'Select Ant Design Pro',
+    'app.home.selectpro': 'Select Wetrial',
     'app.home.selectlanguage': 'Select language you use',
     'app.home.openbrowser': 'open browser and visit',
     'app.home.needhelp':
@@ -85,7 +85,7 @@ export default {
     'app.publish.intro': 'has been released',
     'app.publish.tips': ', welcome to upgrade and experience. ',
     'app.publish.url':
-      'https://medium.com/ant-design/beautiful-and-powerful-ant-design-pro-2-0-release-51358da5af95',
+      'https://medium.com/ant-design/beautiful-and-powerful-wetrial-2-0-release-51358da5af95',
     'app.publish.old-version-guide': 'If you need documentation of older version, please visit ',
     'app.publish.old-version-tips':
       ',It can also be viewed by clicking on the v1 menu in the top right corner of the page.',

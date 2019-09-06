@@ -1,11 +1,11 @@
 {
-  "name": "ant-design-pro-site",
-  "version": "2.3.0",
-  "description": "site of Ant Design Pro",
+  "name": "wetrial-site",
+  "version": "0.0.0",
+  "description": "site of Wetrial",
   "homepage": "http://pro.ant.design/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ant-design/ant-design-pro-site"
+    "url": "https://github.com/wetrial/wetrial-site"
   },
   "license": "MIT",
   "scripts": {
@@ -100,5 +100,5 @@
     "stylelint": "^9.4.0",
     "typescript": "^3.5.2"
   },
-  "title": "Ant Design Pro"
+  "title": "Wetrial"
 }
