@@ -1,11 +1,10 @@
 ---
 order: 6
-title: 样式
-type: 入门
+title: 修改样式
+type: 开发
 ---
 
 这篇文档主要针对如何在项目中使用和规划样式文件进行介绍，如果想获取基础的 CSS 知识或查阅属性，可以参考 [MDN 文档](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference)。
-
 
 ## less
 
@@ -20,10 +19,10 @@ Ant Design Pro 默认使用 less 作为样式语言，建议在使用前或者�
 
 为了解决上述问题，我们的脚手架默认使用 CSS Modules 模块化方案，先来看下在这种模式下怎么写样式。
 
-```html
-// example.js import styles from './example.less'; export default ({ title }) =>
-<div className="{styles.title}">{title}</div>
-;
+```tsx
+// example.ts
+import styles from './example.less';
+export default ({ title }) => <div className={styles.title}>{title}</div>;
 ```
 
 ```css
@@ -121,7 +120,7 @@ body {
 
 #### 通用模块级
 
-例如 `src/layouts/BasicLayout.less`，里面包含一些基本布局的样式，被 `src/layouts/BasicLayout.js` 引用，项目中使用这种布局的页面就不需要再关心整体布局的设置。如果你的项目中需要使用其他布局，也建议将布局相关的 js 和 less 放在这里 `src/layouts`。
+例如 `src/layouts/BasicLayout.less`，里面包含一些基本布局的样式，被 `src/layouts/BasicLayout.ts` 引用，项目中使用这种布局的页面就不需要再关心整体布局的设置。如果你的项目中需要使用其他布局，也建议将布局相关的 js 和 less 放在这里 `src/layouts`。
 
 #### 页面级
 
@@ -140,7 +139,7 @@ body {
 antd Select 在多选状态下，默认会展示所有选中项，这里我们给它加一个限制高度，超过此高度就出滚动条。
 
 ```js
-// TestPage.js
+// TestPage.ts
 import { Select } from 'antd';
 import styles from './TestPage.less';
 const Option = Select.Option;

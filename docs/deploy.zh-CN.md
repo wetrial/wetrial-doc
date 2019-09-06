@@ -1,44 +1,22 @@
 ---
-order: 8
-title: 构建和发布
-type: 入门
+order: 2
+title: 部署
+type: 构建和部署
 ---
 
-## 构建
+Pro 默认提供了 mock 数据，但是在 build 之后 mock 数据将不再起作用。如果你仍想使用这些数据来搭建演示站点，你可以通过 [umi-serve](https://www.npmjs.com/package/umi-serve) 来启动一个 express 服务。这个服务与 mock 的数据是相同的。
 
-当项目开发完毕，只需要运行一行命令就可以打包你的应用：
+## 部署
 
-```bash
-$ npm run build
-```
+如果你只是简单的部署，你只需要将整个 dist 文件夹复制到你的 CDN 和静态服务器。index.html 应该是你的服务器入口。
 
-[![asciicast](https://asciinema.org/a/198144.png)](https://asciinema.org/a/198144)
-
-由于 Ant Design Pro 使用的工具 [Umi](https://umijs.org/) 已经将复杂的流程封装完毕，构建打包文件只需要一个命令 `umi build`，构建打包成功之后，会在根目录生成 `dist` 文件夹，里面就是构建打包好的文件，通常是 `*.js`、`*.css`、`index.html` 等静态文件。。
-
-如果需要自定义构建，比如指定 `dist` 目录等，可以通过 `config/config.js` 进行配置，详情参看：[Umi 配置](https://umijs.org/guide/config.html)。
-
-### 分析构建文件体积
-
-如果你的构建文件很大，你可以通过 `analyze` 命令构建并分析依赖模块的体积分布，从而优化你的代码。
-
-```bash
-$ npm run analyze
-```
-
-上面的命令会自动在浏览器打开显示体积分布数据的网页。
-
-## 发布
-
-对于发布来讲，只需要将最终生成的静态文件，也就是通常情况下 `dist` 文件夹的静态文件发布到你的 cdn 或者静态服务器即可，需要注意的是其中的 `index.html` 通常会是你后台服务的入口页面，在确定了 js 和 css 的静态之后可能需要改变页面的引入路径。
-
-### 前端路由与服务端的结合
+## 前端路由与服务端的结合
 
 > 如果你遇到 `https://cdn.com/users/123` 刷新后 404 的问题，你需要按照这个章节进行处理。
 
 Ant Design Pro 使用的 Umi 支持两种路由方式：`browserHistory` 和 `hashHistory`。
 
-可以在 `config/config.js` 中进行配置选择用哪个方式：
+可以在 `config/config.ts` 中进行配置选择用哪个方式：
 
 ```javascript
 export default {
@@ -48,7 +26,21 @@ export default {
 
 `hashHistory` 使用如 `https://cdn.com/#/users/123` 这样的 URL，取井号后面的字符作为路径。`browserHistory` 则直接使用 `https://cdn.com/users/123` 这样的 URL。使用 `hashHistory` 时浏览器访问到的始终都是根目录下 `index.html`。使用 `browserHistory` 则需要服务器做好处理 URL 的准备，处理应用启动最初的 `/` 这样的请求应该没问题，但当用户来回跳转并在 `/users/123` 刷新时，服务器就会收到来自 `/users/123` 的请求，这时你需要配置服务器能处理这个 URL 返回正确的 `index.html`。强烈推荐使用默认的 `browserHistory`。
 
-强烈推荐使用默认的 `browserHistory`.
+## 部署到非根目录
+
+部署在非根目录时一种常见的需求，比如部署在 gitHub pages 中。接下来我们假设我们要部署项目到 `${host}/admin` 中。首先我们需要在 `config/config.ts` 中配置 [base](https://umijs.org/zh/config/#base),`base` 是 react-router 的前缀。我们需要将 base 配置为 `admin`, 如果我们还需要将其部署到 `/admin` 目录中，我们还需要设置 [`publicPath`](https://umijs.org/zh/config/#publicpath)。设置完之后是这样的：
+
+```javascript
+export default {
+  // ... some config
+  base: "/admin/",
+  publicPath: "/admin/",
+};
+```
+
+接下来我们就可以在 `${host}/admin` 中访问我们的静态文件了。值得注意的是，在 dev 模式下 url 路径同样也会被修改。
+
+## 部署到不同的平台
 
 ### 使用 nginx
 
@@ -76,12 +68,12 @@ server {
 
     }
     location /api {
-        proxy_pass https://preview.pro.ant.design;
+        proxy_pass https://ant-design-pro.netlify.com;
         proxy_set_header   X-Forwarded-Proto $scheme;
-        proxy_set_header   Host              $http_host;
         proxy_set_header   X-Real-IP         $remote_addr;
     }
 }
+
 server {
   # 如果有资源，建议使用 https + http2，配合按需加载可以获得更好的体验
   listen 443 ssl http2 default_server;
@@ -96,7 +88,7 @@ server {
 
   }
   location /api {
-      proxy_pass https://preview.pro.ant.design;
+      proxy_pass https://ant-design-pro.netlify.com;
       proxy_set_header   X-Forwarded-Proto $scheme;
       proxy_set_header   Host              $http_host;
       proxy_set_header   X-Real-IP         $remote_addr;

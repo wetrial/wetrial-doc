@@ -32,11 +32,7 @@ function Banner(props) {
           <FormattedMessage id="app.home.slogan" />
         </p>
         <div key="button" className="button-wrapper">
-          <a
-            href="https://v2-preview-ant-design-pro.netlify.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="http://preview.pro.ant.design" target="_blank" rel="noopener noreferrer">
             <Button type="primary">
               <FormattedMessage id="app.home.preview" />
             </Button>

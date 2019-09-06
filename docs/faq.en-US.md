@@ -1,11 +1,10 @@
 ---
 order: 22
 title: FAQ
-type: Other
+type: Introduction
 ---
 
 Before you ask a question, please check the following FAQ.
-
 
 ### What is the difference between Ant Design React and Ant Design Pro?
 
@@ -23,12 +22,40 @@ Of course you can! Ant Design Pro is based on the latest antd version. There are
 
 - Upgrade the `antd` version separately for updating the base components.
 - Compare the differences between different Ant Design Pro versions and manually modify the local configuration.
-- You can also try merging remote branches: `git pull https://github.com/wetrial/wetrial-site` (note that you need to resolve conflicts yourself).
+- You can also try merging remote branches: `git pull https://github.com/ant-design/ant-design-pro` (note that you need to resolve conflicts yourself).
 - Copy the latest typical template directly on GitHub.
 
 ### How do I request a menu from the server?
 
-Just update `menuData` in [models/menu](https://github.com/wetrial/wetrial-site/blob/master/src/models/menu.js#L111), which is a json array. Just the server returns a json of similar format.
+Just update `menuData` in [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111), which is a json array. Just the server returns a json of similar format.
+
+You need to update `menuDataRender` prop in [src/layouts/BasicLayout.tsx](https://github.com/ant-design/ant-design-pro/blob/4420ae2c224144c4114e5384bddc3e8ab0e1dc1c/src/layouts/BasicLayout.tsx#L116) as below, fetch menuData from your service.
+
+```jsx
+const [menuData, setMenuData] = useState([]);
+
+useEffect(() => {
+  // just for sample
+  // please use dva dispatch or umi-request in real world
+  fetch('/api/example.json')
+    .then(response => response.json())
+    .then(data => {
+      setMenuData(data || []);
+    });
+}, []);
+
+...
+
+return (
+  <ProLayout
+    ...
+    menuDataRender={() => menuData}
+    ...
+  />
+);
+```
+
+The above menuData definite is [MenuDataItem](https://github.com/ant-design/ant-design-pro-layout/blob/56590a06434c3d0e77dbddcd2bc60827c9866706/src/typings.ts#L18).
 
 ```json
 [
@@ -58,13 +85,13 @@ Just update `menuData` in [models/menu](https://github.com/wetrial/wetrial-site/
 ]
 ```
 
-> Note that path must be defined in routre.config.js.(All you need in Conventional Routing is the correct page.)
+> Note that path must be defined in config.ts. (All you need in Conventional Routing is the correct page.)
 
 ### How to use Conventional Routing?
 
-Sometimes you may not want to use `config/router.config.js`. Then you can consider umi's [Conventional Routing](https://umijs.org/guide/router.html#conventional-routing).
+Sometimes you may not want to use `config/config.ts`. Then you can consider umi's [Conventional Routing](https://umijs.org/guide/router.html#conventional-routing).
 
-Specific how to use convention routing in pro, you can see this [commit](https://github.com/wetrial/wetrial-site/commit/a22d400328a7a391ed5e5a5f2bba1a5fecf9fad7).
+Specific how to use convention routing in pro, you can see this [commit](https://github.com/ant-design/ant-design-pro/commit/a22d400328a7a391ed5e5a5f2bba1a5fecf9fad7).
 
 > Note: Conventional routing is easier to control menus and privileges, but requires that all menus must declare privileges, otherwise they can be accessed through direct access to urls.
 
@@ -124,11 +151,11 @@ Modify the request address in the project,such as `http://localhost:8001/api/use
 
 > Note: If there is no global installation, but only in the project, add the umi-server command to the script of package.json.
 
-> Note: Proxy is not valid after build. Do not configure request `http://localhost:8001/api/users` in proxy,when http requests, access the address directly.For example, add a request prefix uniformly in `src/utils/request.js`.
+> Note: Proxy is not valid after build. Do not configure request `http://localhost:8001/api/users` in proxy,when http requests, access the address directly.For example, add a request prefix uniformly in `src/utils/request.ts`.
 
 ### How to close page permission control
 
-Configurable routing,remove `Routes: ['src/pages/Authorized']` configurations in `config/router.config.js`.
+Configurable routing,remove `Routes: ['src/pages/Authorized']` configurations in `config/config.ts`.
 
 ```diff
 {
@@ -140,7 +167,7 @@ Configurable routing,remove `Routes: ['src/pages/Authorized']` configurations in
 }
 ```
 
-Details can be seen [PR3842](https://github.com/wetrial/wetrial-site/pull/3842).
+Details can be seen [PR3842](https://github.com/ant-design/ant-design-pro/pull/3842).
 
 Conventional routing, turn off the routing permission plugin.
 
@@ -208,15 +235,15 @@ This is one of the features of Ant Design Pro. The first version is currently av
 
 ### Npm installation of [puppeteer](https://github.com/GoogleChrome/puppeteer/) is failing
 
-Try using cnpm or setting environment variables to see this [issue](https://github.com/cnpm/cnpmjs.org/issues/1246).
+Try using tyarn or setting environment variables to see this [issue](https://github.com/cnpm/cnpmjs.org/issues/1246).
 
 ### Is english documentation available?
 
-English Documentation will be translated in next couple of monthes, trace [ant-design/ant-design-pro#54](https://github.com/wetrial/wetrial-site/issues/54#issuecomment-340804479) and [ant-design-pro/issues/120](https://github.com/wetrial/wetrial-site/issues/120) for more detail.
+English Documentation will be translated in next couple of monthes, trace [ant-design/ant-design-pro#54](https://github.com/ant-design/ant-design-pro/issues/54#issuecomment-340804479) and [ant-design-pro/issues/120](https://github.com/ant-design/ant-design-pro/issues/120) for more detail.
 
-### After Ant Design Pro upgrades from 1.X to 2.X, page layout components (such as BasicLayout) are reloaded when the page is redirected (redirect)
+### After Ant Design Pro upgrades from 1.X to 2.X and after version, page layout components (such as BasicLayout) are reloaded when the page is redirected (redirect)
 
-Add `disableRedirectHoist: true` in config.js configuration:
+Add `disableRedirectHoist: true` in config.ts configuration:
 
 ```diff
 export default {
@@ -230,4 +257,4 @@ export default {
 
 ---
 
-More FAQs can be found in [Trouble Shooting](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting). If this does not solve your problem, please [Report to us](https://github.com/wetrial/wetrial-site/issues).
+More FAQs can be found in [Trouble Shooting](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting). If this does not solve your problem, please [Report to us](https://github.com/ant-design/ant-design-pro/issues).

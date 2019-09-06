@@ -1,7 +1,7 @@
 ---
 order: 5
 title: New Component
-type: Introduction
+type: Development
 ---
 
 For some reusable UI, it is a best practice to abstract it as React components which should have these features:
@@ -10,28 +10,27 @@ For some reusable UI, it is a best practice to abstract it as React components w
 - Don't contain routes info.
 - Stateless or contain isolate state within it.
 
-
 Now we try to write a simple component as sample. Assume that you have a picture presentation UI which has fixed width, grey background, and text description like this:
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/vcRltFiKfHBHFrUcsTtW.png" width="400" />
 
 ## Create file in components
 
-Create a folder named `ImageWrapper` (capitalised and same as component name) under `src/components`, and `index.js` `index.less` inside it.
+Create a folder named `ImageWrapper` (capitalised and same as component name) under `src/components`, and `index.ts` `index.less` inside it.
 
-> You can split sub-component into other files and import them in `index.js`.
+> You can split sub-component into other files and import them in `index.ts`.
 
 > ```js
-> // MainComponent.js
+> // MainComponent.ts
 > export default ({ ... }) => (...);
 >
-> // SubComponent1.js
+> // SubComponent1.ts
 > export default ({ ... }) => (...);
 >
-> // SubComponent2.js
+> // SubComponent2.ts
 > export default ({ ... }) => (...);
 >
-> // index.js
+> // index.ts
 > import MainComponent from './MainComponent';
 > import SubComponent1 from './SubComponent1';
 > import SubComponent2 from './SubComponent2';
@@ -41,14 +40,12 @@ Create a folder named `ImageWrapper` (capitalised and same as component name) un
 > export default MainComponent;
 > ```
 
-````
-
 The Component source code would be like:
 
 ```jsx
-// index.js
+// index.ts
 import React from 'react';
-import styles from './index.less';    // import style in css modules way
+import styles from './index.less'; // import style in css modules way
 
 export default ({ src, desc, style }) => (
   <div style={style} className={styles.imageWrapper}>
@@ -56,10 +53,10 @@ export default ({ src, desc, style }) => (
     {desc && <div className={styles.desc}>{desc}</div>}
   </div>
 );
-````
+```
 
 ```css
-// index.less
+/* index.less */
 .imageWrapper {
   padding: 0 20px 8px;
   background: #f2f4f5;

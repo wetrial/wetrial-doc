@@ -1,11 +1,10 @@
 ---
 order: 22
 title: 常见问题
-type: 其他
+type: 入门
 ---
 
 提问之前，请先查阅下面的常见问题。
-
 
 ### Ant Design React 和 Ant Design Pro 有什么区别？
 
@@ -23,12 +22,38 @@ type: 其他
 
 - 单独升级 `antd` 版本，用于更新基础组件。
 - 比较不同的 Ant Design Pro 版本间的差异，手动修改本地配置。
-- 也可以尝试合并远程分支：`git pull https://github.com/wetrial/wetrial-site`（注意，需要自行解决冲突）。
+- 也可以尝试合并远程分支：`git pull https://github.com/ant-design/ant-design-pro`（注意，需要自行解决冲突）。
 - 直接在 GitHub 上拷贝最新的典型模板。
 
 ### 如何从服务器请求菜单？
 
-只需在 [models/menu](https://github.com/wetrial/wetrial-site/blob/master/src/models/menu.js#L111) 中发起 http 请求， menuData 是一个 json 数组。只需服务器返回类似格式的 json 即可。
+你可以在 [src/layouts/BasicLayout.tsx](https://github.com/ant-design/ant-design-pro/blob/4420ae2c224144c4114e5384bddc3e8ab0e1dc1c/src/layouts/BasicLayout.tsx#L116) 中修改 `menuDataRender`，并在代码中发起 http 请求，只需服务器返回下面格式的 json 即可。
+
+```jsx
+const [menuData, setMenuData] = useState([]);
+
+useEffect(() => {
+  // 这里是一个演示用法
+  // 真实项目中建议使用 dva dispatch 或者 umi-request
+  fetch('/api/example.json')
+    .then(response => response.json())
+    .then(data => {
+      setMenuData(data || []);
+    });
+}, []);
+
+...
+
+return (
+  <ProLayout
+    ...
+    menuDataRender={() => menuData}
+    ...
+  />
+);
+```
+
+`menuData` 数据格式如下，ts 定义在此：[MenuDataItem](https://github.com/ant-design/ant-design-pro-layout/blob/56590a06434c3d0e77dbddcd2bc60827c9866706/src/typings.ts#L18).
 
 ```json
 [
@@ -58,13 +83,13 @@ type: 其他
 ]
 ```
 
-> 注意 path 必须要在 routre.config.js 中定义。（约定式路由不需要，只需页面真实有效即可）。
+> 注意 path 必须要在 config.ts 中定义。（约定式路由不需要，只需页面真实有效即可）。
 
 ### 如何使用 Umi 约定式路由
 
-有时候你可能不想要使用 config/router.config.js 的配置。那你可以考虑 umi 的[约定式路由](https://umijs.org/zh/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)。
+有时候你可能不想要使用 config/config.ts 的配置。那你可以考虑 umi 的[约定式路由](https://umijs.org/zh/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)。
 
-具体的如何在 pro 中使用约定式路由，可以查看这次[提交](https://github.com/wetrial/wetrial-site/commit/a22d400328a7a391ed5e5a5f2bba1a5fecf9fad7)。
+具体的如何在 pro 中使用约定式路由，可以查看这次[提交](https://github.com/ant-design/ant-design-pro/commit/a22d400328a7a391ed5e5a5f2bba1a5fecf9fad7)。
 
 > 注意：约定式路由比较容易实现菜单和权限的控制，但是要求所有的菜单都必须声明权限，不然均可以通过直接访问 url 的方式访问。
 
@@ -120,11 +145,11 @@ $ umi-serve
 ]
 ```
 
-> 注意：如果没有全局安装，而只是在项目中安装，要把 umi-serve 命令添加到 package.json 的 script 里面。注意：build 之后 proxy 无效，不要在 proxy 中配置请求`http://localhost:8001/api/users` ，而是要在 http 请求的时候，直接访问该地址。如在 `src/utils/request.js` 中统一添加请求前缀。
+> 注意：如果没有全局安装，而只是在项目中安装，要把 umi-serve 命令添加到 package.json 的 script 里面。注意：build 之后 proxy 无效，不要在 proxy 中配置请求`http://localhost:8001/api/users` ，而是要在 http 请求的时候，直接访问该地址。如在 [`src/utils/request.ts`](https://github.com/ant-design/ant-design-pro/blob/80ce8fe43746426abc054c1cf76b8f733f54b001/src/utils/request.ts) 中统一添加请求前缀。
 
 ### 如何关闭页面权限控制
 
-配置式路由，删除 `config/router.config.js` 中的 `Routes: ['src/pages/Authorized']` 配置。
+配置式路由，删除 `config/config.ts` 中的 `Routes: ['src/pages/Authorized']` 配置。
 
 ```diff
 {
@@ -136,7 +161,7 @@ $ umi-serve
 }
 ```
 
-详情可见[PR3842](https://github.com/wetrial/wetrial-site/pull/3842)。
+详情可见[PR3842](https://github.com/ant-design/ant-design-pro/pull/3842)。
 
 约定式路由，关掉路由权限插件。
 
@@ -188,7 +213,7 @@ Ant Design Pro 内置了 umi，umi 使用了 webpack [devServer](https://webpack
 $ npm i node-sass sass-loader --save
 ```
 
-然后修改 `.umirc.js`或者`config/config.js`:
+然后修改 `.umirc.js`或者`config/config.ts`:
 
 ```json
 {
@@ -210,15 +235,15 @@ pro 通过 umi 插件 [umi-plugin-locale](https://github.com/umijs/umi-plugin-lo
 
 ### npm 安装 puppeteer 失败
 
-尝试使用 cnpm 或者设置环境变量，可以查看这个 [issue](https://github.com/cnpm/cnpmjs.org/issues/1246)。
+尝试使用 tyarn 或者设置环境变量，可以查看这个 [issue](https://github.com/cnpm/cnpmjs.org/issues/1246)。
 
 ### English Documentation？
 
-English Documentation will be translated in next couple of monthes， trace [ant-design/ant-design-pro#54](https://github.com/wetrial/wetrial-site/issues/54#issuecomment-340804479) 和 [ant-design-pro/issues/120](https://github.com/wetrial/wetrial-site/issues/120) 了解更多细节。
+English Documentation will be translated in next couple of monthes， trace [ant-design/ant-design-pro#54](https://github.com/ant-design/ant-design-pro/issues/54#issuecomment-340804479) 和 [ant-design-pro/issues/120](https://github.com/ant-design/ant-design-pro/issues/120) 了解更多细节。
 
-### Ant Design Pro 从 1.X 升级到 2.X 后，页面进行重定向（redirect）时，页面布局组件（如 BasicLayout）会重新加载
+### Ant Design Pro 从 1.X 升级到 2.X 以及之后版本，页面进行重定向（redirect）时，页面布局组件（如 BasicLayout）会重新加载
 
-在 config.js 中添加 `disableRedirectHoist: true` 配置：
+在 config.ts 中添加 `disableRedirectHoist: true` 配置：
 
 ```diff
 export default {
@@ -232,4 +257,4 @@ This is a problem introduced using the umijs framework. For details, please refe
 
 ---
 
-更多常见问题可以查看 [Trouble Shooting](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting) 和 [umi](https://github.com/umijs/umi)。如果这里未能解决你的问题，欢迎 [报告给我们](https://github.com/wetrial/wetrial-site/issues)。
+更多常见问题可以查看 [Trouble Shooting](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting) 和 [umi](https://github.com/umijs/umi)。如果这里未能解决你的问题，欢迎 [报告给我们](https://github.com/ant-design/ant-design-pro/issues)。

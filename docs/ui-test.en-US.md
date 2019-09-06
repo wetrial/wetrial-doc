@@ -142,7 +142,7 @@ Use `xit()` instead of `it()` to temporarily ignore the test case, `fit()` to fo
 
 ## Access integration testing services
 
-If you need access to integration testing environment such as travis, CircleCI, Gitlab CI, you can refer to [.travis.yml](https://github.com/wetrial/wetrial-site/blob/master/.travis.yml) provided by this repository.
+If you need access to integration testing environment such as travis, CircleCI, Gitlab CI, you can refer to [.travis.yml](https://github.com/ant-design/ant-design-pro/blob/master/.travis.yml) provided by this repository.
 
 Note that the e2e test requires integrated environment support [electron](https://electronjs.org/), and if not, you can run unit tests separately using `npm test .test.js`.
 

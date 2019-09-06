@@ -1,24 +1,24 @@
 ---
 order: 3
 title: Router and Nav
-type: Introduction
+type: Development
 ---
 
-Routing and menus are the key skeletons for organizing an application. The routes in pro are centrally managed in a convenient way to manage and manage them in [`router.config.js`](https://github.com/wetrial/wetrial-site/blob/master/config/router.config.js).
+Routing and menus are the key skeletons for organizing an application. The routes in pro are centrally managed in a convenient way to manage and manage them in [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts).
 
 ## Basic Structure
 
 In this part, scaffolding builds the basic framework of routing and menus by combining some configuration files, basic algorithms and tool functions, mainly involving the following modules/functions:
 
-- `Routing Management` Configure the route in [`router.config.js`](https://github.com/wetrial/wetrial-site/blob/master/config/router.config.js) according to the agreed syntax.
+- `Routing Management` Configure the route in [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) according to the agreed syntax.
 - `Menu generation` Generates a menu based on the routing configuration. The name of the menu item, the nested path is highly coupled to the route.
-- Breadcrumbs component The breadcrumbs built into [PageHeader](http://dev.xxgtalk.cncomponents/PageHeader) can also be automatically generated from the configuration information provided by the scaffolding.
+- Breadcrumbs component The breadcrumbs built into [PageHeader](http://v2-pro.ant.design/components/PageHeader) can also be automatically generated from the configuration information provided by the scaffolding.
 
 The following is a brief introduction to the basic ideas of each module. If you are not interested in the implementation process, just want to know how to implement the relevant requirements, you can directly view [requirements instance](/docs/router-and-nav#Example).
 
 ### Router
 
-At present, all the routes in the scaffolding are managed by [`router.config.js`](https://github.com/wetrial/wetrial-site/blob/master/config/router.config.js). In the configuration of umi, we add some parameters, such as `name`, `icon`, `hideChildren`, `authority`, to assist the generation. menu. among them:
+At present, all the routes in the scaffolding are managed by [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts). In the configuration of umi, we add some parameters, such as `name`, `icon`, `hideChildren`, `authority`, to assist the generation. menu. among them:
 
 - `name` and `icon` represent the icon and text of the generated menu item, respectively.
 - `hideChildrenInMenu` is used to hide sub-routes that do not need to be displayed in the menu. Usage can view the configuration of the `Step by Step Form`.
@@ -28,61 +28,75 @@ At present, all the routes in the scaffolding are managed by [`router.config.js`
 
 ### Menu
 
-The menu is generated according to [`router.config.js`](https://github.com/wetrial/wetrial-site/blob/master/config/router.config.js), and the concrete logic is implemented in the `formatter` method in [`src/layouts/BasicLayout`](https://github.com/wetrial/wetrial-site/blob/master/src/layouts/BasicLayout.js#L227).
+The menu is generated according to [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts).
 
-> If your project does not require a menu, you can remove the mount of the `SiderMenu` component directly in `BasicLayout`. And set `const MenuData = []` in `src/layouts/BasicLayout`.
+> If your project does not require a menu, you can do it at [src/layouts/BasicLayout.tsx](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.tsx#L116) by setting `menuRender={false}`.
 
-### request a menu from the server
+### Fetch menu from server
 
-Just update `menuData` in [models/menu](https://github.com/wetrial/wetrial-site/blob/master/src/models/menu.js#L111), which is a json array. Just the server returns a json of similar format.
+Just update `menuData` in [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111), which is a json array. Just the server returns a json of similar format.
 
-```js
+You need to update `menuDataRender` prop in [src/layouts/BasicLayout.tsx](https://github.com/ant-design/ant-design-pro/blob/4420ae2c224144c4114e5384bddc3e8ab0e1dc1c/src/layouts/BasicLayout.tsx#L116) as below, fetch menuData from your service.
+
+```jsx
+const [menuData, setMenuData] = useState([]);
+
+useEffect(() => {
+  // just for sample
+  // please use dva dispatch or umi-request in real world
+  fetch('/api/example.json')
+    .then(response => response.json())
+    .then(data => {
+      setMenuData(data || []);
+    });
+}, []);
+
+...
+
+return (
+  <ProLayout
+    // ...
+    menuDataRender={() => menuData}
+    // ...
+  />
+);
+```
+
+The above menuData definite is [MenuDataItem](https://github.com/ant-design/ant-design-pro-layout/blob/56590a06434c3d0e77dbddcd2bc60827c9866706/src/typings.ts#L18).
+
+```json
 [
   {
-    path: '/dashboard'，
-    name: 'dashboard'，
-    icon: 'dashboard'，
-    children: [
+    "path": "/dashboard",
+    "name": "dashboard",
+    "icon": "dashboard",
+    "routes": [
       {
-        path: '/dashboard/analysis'，
-        name: 'analysis'，
-        exact: true，
-      }，
+        "path": "/dashboard/analysis",
+        "name": "analysis",
+        "exact": true
+      },
       {
-        path: '/dashboard/monitor'，
-        name: 'monitor'，
-        exact: true，
-      }，
+        "path": "/dashboard/monitor",
+        "name": "monitor",
+        "exact": true
+      },
       {
-        path: '/dashboard/workplace'，
-        name: 'workplace'，
-        exact: true，
-      }，
-    ]，
+        "path": "/dashboard/workplace",
+        "name": "workplace",
+        "exact": true
+      }
+    ]
   }
-  ...
+  // ....
 ]
 ```
 
-> Note that path must be defined in routre.config.js.(All you need in Conventional Routing is the correct page.)
+> Note that path must be defined in config.ts. (All you need in Conventional Routing is the correct page.)
 
 ### Bread Crumbs
 
-Breadcrumbs are implemented by `PageHeaderWrapper`, `MenuContext` will be passed to `PageHeader` via props according to the `breadcrumbNameMap` generated by `MenuData`. If you want to make custom breadcrumbs, you can modify the incoming `breadcrumbNameMap` solve.
-
-`breadcrumbNameMap` sample data is as follows:
-
-```js
-{
-  '/': { path: '/', redirect: '/dashboard/analysis', locale: 'menu' },
-  '/dashboard/analysis': {
-    name: 'analysis',
-    component: './Dashboard/Analysis',
-    locale: 'menu.dashboard.analysis',
-  },
-  ...
-}
-```
+Breadcrumbs are implemented by `PageHeaderWrapper`, `Layout` will be rendered according to `breadcrumb` generated by `MenuData` and rendered by PageHeaderWrapper. PageHeaderWrapper is packaged into Ant Design's [PageHeader](https://ant.design/components/page-header), and the api is identical.
 
 ## Example
 
@@ -99,7 +113,11 @@ You can fill the url directly into the path and the framework will handle it aut
 }
 ```
 
+If you need to customize the click logic of the menuItem, you can use [menuItemRender](https://github.com/ant-design/ant-design-pro/blob/e14b1311d5efdd032a04d86ed4ed80292b832822/src/layouts/BasicLayout.tsx#L103) to fulfill.
+
 ### Add Page
+
+> Please read through the block new [Block](/docs/block)
 
 Scaffolding provides two layout templates by default: `Basic Layout - BasicLayout` and `Account Layout - UserLayout`:
 
@@ -126,7 +144,7 @@ When added, the relevant routing and navigation will be automatically generated.
 
 ### Add layout
 
-In the scaffolding we implement the layout template by nesting the route. [`router.config.js`](https://github.com/wetrial/wetrial-site/blob/master/config/router.config.js) is an array, the first level of which is our layout. If you need to add a new layout, you can directly add a new first-level element in the array.
+In the scaffolding we implement the layout template by nesting the route. [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) is an array, the first level of which is our layout. If you need to add a new layout, you can directly add a new first-level element in the array.
 
 ```js
 module.exports = [
@@ -154,9 +172,9 @@ module.exports = [
 
 ### Use a custom icon in the menu
 
-Due to umi's limitations, the [`router.config.js`](https://github.com/wetrial/wetrial-site/blob/master/config/router.config.js) is not directly With components, Pro temporarily supports the use of [`ant.design`](https://ant.design/components/icon-cn/) its own icon type, and the url of an img. Just configure it directly on the icon property. If it's a url, Pro will automatically process it as an img tag.
+Due to umi's limitations, the [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) is not directly With components, Pro temporarily supports the use of [`ant.design`](https://ant.design/components/icon-cn/) its own icon type, and the url of an img. Just configure it directly on the icon property. If it's a url, Pro will automatically process it as an img tag.
 
-If this does not meet the requirements, you can customize [`getIcon`](https://github.com/wetrial/wetrial-site/blob/master/src/components/SiderMenu/BaseMenu.js#L18) method.
+If this does not meet the requirements, you can customize [`getIcon`](https://github.com/ant-design/ant-design-pro/blob/master/src/components/SiderMenu/BaseMenu.js#L18) method.
 
 > If you need to use the iconfont icon, you can try the custom icon for [ant.desgin](https://ant.design/components/icon-cn/#%E8%87%AA%E5%AE%9A%E4%B9%).
 

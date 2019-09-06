@@ -48,4 +48,3 @@ config/components/package.json
 .cache/
 public
 false
-/scaffold
