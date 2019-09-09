@@ -285,7 +285,7 @@ class Page1 extends React.PureComponent {
             </Parallax>
           )}
           <h2>
-            What can <span>Pro</span> do for you{' '}
+            What can <span>Wetrial</span> do for you{' '}
           </h2>
           <div className="title-line-wrapper page1-line">
             <div className="title-line" />

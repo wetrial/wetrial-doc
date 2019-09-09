@@ -29,7 +29,6 @@ export default {
     'app.home.preview': '预览',
     'app.home.start': '开始使用',
     'app.home.download': '下载',
-    'app.home.letspro': '命令行运行下列命令，快速启动开发服务：',
     'app.home.selectpro': '选择 Wetrial',
     'app.home.selectlanguage': '选择你使用的语言',
     'app.home.openbrowser': '打开浏览器访问',
@@ -87,6 +86,6 @@ export default {
     'app.publish.url': 'https://www.yuque.com/wetrial/wetrial',
     'app.publish.old-version-guide': '如果您还需要使用旧版，请查阅 ',
     'app.publish.old-version-tips': '，也可通过点击页面右上角的 v1 菜单查看。',
-    "app.footer.online-document":'在线文档',
+    'app.footer.online-document': '在线文档',
   },
 };

@@ -1,12 +1,13 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Link } from 'gatsby';
-import { Row, Col, Icon, Select, Input, Menu, Button, Modal, Popover } from 'antd';
+import { Row, Col, Icon, Input, Menu, Button, Modal, Popover, message } from 'antd';
 import * as utils from '../utils';
+import LOGO_URL from '../../../public/icons/icon-48x48.svg';
 
-const { Option } = Select;
+// const { Option } = Select;
 
-const LOGO_URL = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
+// const LOGO_URL = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
 
 const key = 'antd-pro@2.0.0-notification-sent';
 
@@ -178,14 +179,14 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       );
   };
 
-  onVersionChange = (value: string) => {
-    if (value === 'v1') {
-      window.open('https://v1.pro.ant.design/');
-    }
-    if (value === 'v2') {
-      window.open('https://v2-pro.ant.design/');
-    }
-  };
+  // onVersionChange = (value: string) => {
+  //   if (value === 'v1') {
+  //     window.open('https://v1.pro.ant.design/');
+  //   }
+  //   if (value === 'v2') {
+  //     window.open('https://v2-pro.ant.design/');
+  //   }
+  // };
 
   render() {
     const { menuMode, menuVisible } = this.state;
@@ -198,8 +199,8 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       .slice(0, -1)
       .join('/');
     let activeMenuItem = module || 'home';
-    if (/^blog/.test(path)) {
-      activeMenuItem = 'blog';
+    if (/^css/.test(path)) {
+      activeMenuItem = 'css';
     } else if (/docs/.test(path)) {
       activeMenuItem = 'docs';
     } else if (path === '/') {
@@ -220,16 +221,16 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             <FormattedMessage id="app.header.menu.docs" />
           </Link>
         </Menu.Item>
-        <Menu.Item key="blog">
-          <Link to={utils.getLocalizedPathname('/blog/change-theme', isZhCN)}>Blog</Link>
+        <Menu.Item key="css">
+          <Link to={utils.getLocalizedPathname('/css/change-theme', isZhCN)}>样式</Link>
         </Menu.Item>
-        {menuMode === 'inline' && (
+        {/* {menuMode === 'inline' && (
           <Menu.Item key="preview">
             <a target="_blank" href="http://preview.pro.ant.design/" rel="noopener noreferrer">
               <FormattedMessage id="app.home.preview" />
             </a>
           </Menu.Item>
-        )}
+        )} */}
       </Menu>,
     ];
 
@@ -252,10 +253,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           <Col xxl={4} xl={5} lg={8} md={8} sm={24} xs={24}>
             <Link id="logo" to="/">
               <img src={LOGO_URL} alt="logo" />
-              <img
-                src="https://gw.alipayobjects.com/zos/rmsportal/tNoOLUAkyuGLXoZvaibF.svg"
-                alt="Wetrial"
-              />
+              <span>Wetrial</span>
             </Link>
           </Col>
           <Col xxl={20} xl={19} lg={16} md={16} sm={0} xs={0}>
@@ -270,28 +268,34 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             </div>
             <div className="header-meta">
               <div className="right-header">
-                <div id="lang">
+                {/* <div id="lang">
                   <Button onClick={this.handleLangChange} size="small">
                     <FormattedMessage id="app.header.lang" />
                   </Button>
-                </div>
+                </div> */}
                 <div id="preview">
-                  <a
+                  {/* <a
                     id="preview-button"
                     target="_blank"
-                    href="http://preview.pro.ant.design"
+                    href="https://wetrial.github.io/wetrial-site"
                     rel="noopener noreferrer"
+                  > */}
+                  <Button
+                    onClick={() => {
+                      message.info('敬请期待。。。');
+                    }}
+                    icon="eye-o"
+                    size="small"
                   >
-                    <Button icon="eye-o" size="small">
-                      <FormattedMessage id="app.home.preview" />
-                    </Button>
-                  </a>
+                    <FormattedMessage id="app.home.preview" />
+                  </Button>
+                  {/* </a> */}
                 </div>
-                <Select size="small" onChange={this.onVersionChange} value="stable">
+                {/* <Select size="small" onChange={this.onVersionChange} value="stable">
                   <Option value="v1">v1</Option>
                   <Option value="v2">v2</Option>
                   <Option value="stable">v4</Option>
-                </Select>
+                </Select> */}
               </div>
               {menuMode === 'horizontal' ? <div id="menu">{menu}</div> : null}
             </div>

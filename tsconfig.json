@@ -11,5 +11,9 @@
     "target": "es6",
     "lib": ["dom", "es2017"]
   },
+  "include": [
+    "./src", // 默认是.ts,.tsx 当包含allowJs时也包括.js .jsx
+    "./typings.d.ts"
+  ],
   "exclude": ["node_modules", "lib", "es"]
 }

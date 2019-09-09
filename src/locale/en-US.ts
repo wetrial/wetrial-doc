@@ -29,7 +29,6 @@ export default {
     'app.home.preview': 'Preview',
     'app.home.start': 'Getting Started',
     'app.home.download': 'Download',
-    'app.home.letspro': 'Run commands below, explore it!',
     'app.home.selectpro': 'Select Wetrial',
     'app.home.selectlanguage': 'Select language you use',
     'app.home.openbrowser': 'open browser and visit',

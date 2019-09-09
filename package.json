@@ -98,6 +98,8 @@
     "prettier": "^1.14.0",
     "prismjs": "^1.15.0",
     "stylelint": "^9.4.0",
+    "stylelint-config-css-modules": "^1.4.0",
+    "stylelint-config-standard": "^18.3.0",
     "typescript": "^3.5.2"
   },
   "title": "Wetrial"

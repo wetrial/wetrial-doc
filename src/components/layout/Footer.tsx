@@ -36,10 +36,10 @@ class Footer extends React.Component<{
               <div className="footer-center">
                 <h2>相关资源</h2>
                 <div>
-                  <a href="https://github.com/wetrial">GitHub</a>
+                  <a href="https://github.com/wetrial/wetrial">GitHub</a>
                 </div>
                 <div>
-                  <a href="http://jui-site.wetrial.com">
+                  <a href="https://wetrial.github.io/wetrial-site">
                     <FormattedMessage id="app.footer.online-document" />
                   </a>
                 </div>
@@ -56,7 +56,7 @@ class Footer extends React.Component<{
                   <FormattedMessage id="app.footer.more-product" />
                 </h2>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://www.wetrial-pv.com">
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.wetrial-pv.com">
                     PV
                   </a>
                   <span> - </span>

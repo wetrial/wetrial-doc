@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -34,7 +33,7 @@ module.exports = async ({ graphql, actions }) => {
           }
         }
       }
-    `
+    `,
   );
 
   if (allMarkdown.errors) {
@@ -44,10 +43,10 @@ module.exports = async ({ graphql, actions }) => {
   }
   const redirects = {};
 
-  const edges = allMarkdown.data.allMarkdownRemark.edges;
+  const { edges } = allMarkdown.data.allMarkdownRemark;
   edges.forEach(edge => {
     const { slug, underScoreCasePath } = edge.node.fields;
-    if (slug.includes('docs/') || slug.includes('/blog')) {
+    if (slug.includes('docs/') || slug.includes('/css')) {
       const template = docsTemplate;
       const createArticlePage = path => {
         if (underScoreCasePath !== path) {
@@ -60,7 +59,7 @@ module.exports = async ({ graphql, actions }) => {
           context: {
             slug,
             // if is docs page
-            type: slug.includes('docs/') ? '/docs/' : '/blog/',
+            type: slug.includes('docs/') ? '/docs/' : '/css/',
           },
         });
       };
@@ -84,21 +83,21 @@ module.exports = async ({ graphql, actions }) => {
   });
 
   createRedirect({
-    fromPath: '/blog/beter-block/',
+    fromPath: '/css/beter-block/',
     redirectInBrowser: true,
-    toPath: '/blog/better-block',
+    toPath: '/css/better-block',
   });
 
   createRedirect({
-    fromPath: '/blog/beter-block-cn/',
+    fromPath: '/css/beter-block-cn/',
     redirectInBrowser: true,
-    toPath: '/blog/better-block-cn',
+    toPath: '/css/better-block-cn',
   });
 
   createRedirect({
-    fromPath: '/blog/',
+    fromPath: '/css/',
     redirectInBrowser: true,
-    toPath: '/blog/change-theme',
+    toPath: '/css/change-theme',
   });
 
   Object.keys(redirects).map(path =>
@@ -106,6 +105,6 @@ module.exports = async ({ graphql, actions }) => {
       fromPath: path,
       redirectInBrowser: true,
       toPath: redirects[path],
-    })
+    }),
   );
 };

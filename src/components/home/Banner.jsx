@@ -32,7 +32,11 @@ function Banner(props) {
           <FormattedMessage id="app.home.slogan" />
         </p>
         <div key="button" className="button-wrapper">
-          <a href="http://preview.pro.ant.design" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://wetrial.github.io/wetrial-site"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button type="primary">
               <FormattedMessage id="app.home.preview" />
             </Button>
@@ -42,12 +46,7 @@ function Banner(props) {
               <FormattedMessage id="app.home.start" />
             </Button>
           </Link>
-          <GitHubButton
-            key="github-button"
-            type="stargazers"
-            namespace="wetrial"
-            repo="wetrial"
-          />
+          <GitHubButton key="github-button" type="stargazers" namespace="wetrial" repo="wetrial" />
         </div>
       </QueueAnim>
       {!isMobile && (
