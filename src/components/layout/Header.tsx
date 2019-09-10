@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Link } from 'gatsby';
-import { Row, Col, Icon, Input, Menu, Button, Modal, Popover, message } from 'antd';
+import { Row, Col, Icon, Input, Menu, Button, Modal, Popover, message, Dropdown } from 'antd';
 import * as utils from '../utils';
 import LOGO_URL from '../../../public/icons/icon-48x48.svg';
 
@@ -291,6 +291,76 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                   </Button>
                   {/* </a> */}
                 </div>
+                <Dropdown
+                  overlay={
+                    <Menu>
+                      <Menu.Item>
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href="https://ant.design/docs/react"
+                        >
+                          Ant Design
+                        </a>
+                      </Menu.Item>
+                      <Menu.Item>
+                        <a target="_blank" rel="noopener noreferrer" href="https://umijs.org">
+                          umi
+                        </a>
+                      </Menu.Item>
+                      <Menu.Item>
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href="http://github.com/dvajs/dva/"
+                        >
+                          dva
+                        </a>
+                      </Menu.Item>
+                      <Menu.Item>
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href="https://lodash.com/docs/4.17.15"
+                        >
+                          lodash
+                        </a>
+                      </Menu.Item>
+                      <Menu.Item>
+                        <a target="_blank" rel="noopener noreferrer" href="https://pro.ant.design">
+                          ant design pro
+                        </a>
+                      </Menu.Item>
+                      <Menu.Item>
+                        <a target="_blank" rel="noopener noreferrer" href="https://momentjs.com/">
+                          moment
+                        </a>
+                      </Menu.Item>
+                      <Menu.Item>
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href="https://www.typescriptlang.org"
+                        >
+                          typescript
+                        </a>
+                      </Menu.Item>
+                      <Menu.Item>
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href="http://es6.ruanyifeng.com/"
+                        >
+                          es2015
+                        </a>
+                      </Menu.Item>
+                    </Menu>
+                  }
+                >
+                  <a className="ant-dropdown-link" href="#">
+                    相关文档 <Icon type="down" />
+                  </a>
+                </Dropdown>
                 {/* <Select size="small" onChange={this.onVersionChange} value="stable">
                   <Option value="v1">v1</Option>
                   <Option value="v2">v2</Option>

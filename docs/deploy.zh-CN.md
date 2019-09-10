@@ -4,7 +4,7 @@ title: 部署
 type: 构建和部署
 ---
 
-Pro 默认提供了 mock 数据，但是在 build 之后 mock 数据将不再起作用。如果你仍想使用这些数据来搭建演示站点，你可以通过 [umi-serve](https://www.npmjs.com/package/umi-serve) 来启动一个 express 服务。这个服务与 mock 的数据是相同的。
+Wetrial-Template 默认提供了 mock 数据，但是在 build 之后 mock 数据将不再起作用。如果你仍想使用这些数据来搭建演示站点，你可以通过 [umi-serve](https://www.npmjs.com/package/umi-serve) 来启动一个 express 服务。这个服务与 mock 的数据是相同的。
 
 ## 部署
 
@@ -33,8 +33,8 @@ export default {
 ```javascript
 export default {
   // ... some config
-  base: "/admin/",
-  publicPath: "/admin/",
+  base: '/admin/',
+  publicPath: '/admin/',
 };
 ```
 
@@ -96,14 +96,28 @@ server {
 }
 ```
 
-### 使用 spring boot
+### 使用 .net core
 
-Spring Boot 是使用最多的 java 框架，只需要简单的几步就可以与 Ant Design Pro 进行整合。
+.net core 是目前几大语言中最最最喜欢的语言，只需要简单的几部就可以与 Wetrial-Template 整合
 
 首先运行 build
 
 ```
-$ npm run build
+$ yarn build
+```
+
+然后将编译后的文件夹复制到 wwwroot 目录下，修改默认的路由，让它重定向到这个页面(也可以在 action 里面读取这个目录下的 index.html 返回)
+
+> 更推荐的形式，将前端以及后端整合成一个 docker 包形式
+
+### 使用 spring boot
+
+Spring Boot 是使用最多的 java 框架，只需要简单的几步就可以与 Wetrial-Template 进行整合。
+
+首先运行 build
+
+```
+$ yarn build
 ```
 
 然后将编译之后的文件复制到 spring boot 项目的 `/src/main/resources/static` 目录下。
@@ -124,7 +138,7 @@ public String index(){
 }
 ```
 
-> 注意 pro 并没有提供 java 的 api 接口实现，如果只是为了预览 demo，可以使用反向代理到 `https://preview.pro.ant.design`。
+> 注意 Wetrial-Template 并没有提供 java 的 api 接口实现，如果只是为了预览 demo，可以使用反向代理到 `https://preview.pro.ant.design`。
 
 ### 使用 express
 

@@ -4,11 +4,13 @@ title: 设计资源
 type: 其他
 ---
 
-Ant Design Pro 配套的设计资源。
+Ant Design 配套的设计资源。
+
+> https://pro.ant.design/docs/resource-cn
 
 ## Axure Library <img  class="icon" src="https://zos.alipayobjects.com/rmsportal/qXrCHrsuyrINSeerFOerLcTTFZiEzHAJ.png" width="24" />
 
-Ant Design 3.0 和 Ant Design Pro 的配套 Axure 资源包。
+Ant Design 3.0 的配套 Axure 资源包。
 
 - 链接：http://library.ant.design/
 
@@ -16,7 +18,7 @@ Ant Design 3.0 和 Ant Design Pro 的配套 Axure 资源包。
 
 Ant Design Pro 的配套 Sketch 模板。
 
-- 链接：[Ant.Design.Pro.sketch](https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Pro.sketch)
+- 链接：[Ant Design .sketch](https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Pro.sketch)
 
 ## 其他 Ant Design 设计资源
 
