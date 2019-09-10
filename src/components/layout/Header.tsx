@@ -314,7 +314,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                           rel="noopener noreferrer"
                           href="http://github.com/dvajs/dva/"
                         >
-                          dva
+                          Dva
                         </a>
                       </Menu.Item>
                       <Menu.Item>
@@ -328,7 +328,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                       </Menu.Item>
                       <Menu.Item>
                         <a target="_blank" rel="noopener noreferrer" href="https://pro.ant.design">
-                          ant design pro
+                          Ant Design Pro
                         </a>
                       </Menu.Item>
                       <Menu.Item>
@@ -342,7 +342,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                           rel="noopener noreferrer"
                           href="https://www.typescriptlang.org"
                         >
-                          typescript
+                          Typescript
                         </a>
                       </Menu.Item>
                       <Menu.Item>
@@ -351,7 +351,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                           rel="noopener noreferrer"
                           href="http://es6.ruanyifeng.com/"
                         >
-                          es2015
+                          ES2015
                         </a>
                       </Menu.Item>
                     </Menu>

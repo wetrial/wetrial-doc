@@ -8,7 +8,7 @@ type: 开发
 
 ## less
 
-Ant Design Pro 默认使用 less 作为样式语言，建议在使用前或者遇到疑问时学习一下 [less](http://lesscss.org/) 的相关特性。
+Wetrial-Template 默认使用 less 作为样式语言，建议在使用前或者遇到疑问时学习一下 [less](http://lesscss.org/) 的相关特性。
 
 ## CSS Modules
 
@@ -158,7 +158,7 @@ ReactDOM.render(
   >
     {children}
   </Select>,
-  mountNode
+  mountNode,
 );
 ```
 

@@ -14,7 +14,7 @@ Wetrial-Template 默认提供了 mock 数据，但是在 build 之后 mock 数�
 
 > 如果你遇到 `https://cdn.com/users/123` 刷新后 404 的问题，你需要按照这个章节进行处理。
 
-Ant Design Pro 使用的 Umi 支持两种路由方式：`browserHistory` 和 `hashHistory`。
+Wetrial-Template 使用的 Umi 支持两种路由方式：`browserHistory` 和 `hashHistory`。
 
 可以在 `config/config.ts` 中进行配置选择用哪个方式：
 

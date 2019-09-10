@@ -1,26 +1,20 @@
-# Ant Design Pro Site
+# Wetrial-Template Site
 
-The documentation source of [Ant Design Pro](https://github.com/ant-design/ant-design-pro).
+The documentation source of [Wetrial](https://github.com/wetrial/wetrial/blob/master).
 
 ### Development
 
 ```bash
-$ git clone git@github.com:ant-design/ant-design-pro-site.git
-$ cd ant-design-pro-site
-$ npm install
-$ npm start
+$ git clone git@github.com:wetrial/wetrial-template.git
+$ cd wetrial-template
+$ yarn
+$ yarn start
 ```
 
-Then visit http://localhost:8001 .
+Then visit http://localhost:9000 .
 
 ### Deploy
 
 ```
-$ npm run site
-```
-
-### Publish Components
-
-```
-$ npm run publish-components
+$ yarn site
 ```

@@ -31,7 +31,7 @@ export default function HTML(props) {
             }
             // 优先级提高到所有静态资源的前面，语言不对，加载其他静态资源没意义
             var pathname = location.pathname;
-        
+
             function isZhCN(pathname) {
               return /-cn\\/?$/.test(pathname);
             }

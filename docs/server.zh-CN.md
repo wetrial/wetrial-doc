@@ -4,11 +4,11 @@ title: 和服务端进行交互
 type: 开发
 ---
 
-Ant Design Pro 是一套基于 React 技术栈的单页面应用，我们提供的是前端代码和本地模拟数据的开发模式，通过 API 的形式和任何技术栈的服务端应用一起工作。下面将简单介绍和服务端交互的基本写法。
+Wetrial-Template 是一套基于 React 技术栈的单页面应用，我们提供的是前端代码和本地模拟数据的开发模式，通过 API 的形式和任何技术栈的服务端应用一起工作。下面将简单介绍和服务端交互的基本写法。
 
 ## 前端请求流程
 
-在 Ant Design Pro 中，一个完整的前端 UI 交互到服务端处理流程是这样的：
+在 Wetrial-Template 中，一个完整的前端 UI 交互到服务端处理流程是这样的：
 
 1. UI 组件交互操作；
 2. 调用 model 的 effect；
@@ -27,20 +27,20 @@ services/
   ...
 ```
 
-其中，`utils/request.ts` 是基于 [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) 的封装，便于统一处理 POST，GET 等请求参数，请求头，以及错误提示信息等。具体可以参看 [request.ts](https://github.com/ant-design/ant-design-pro/blob/master/src/utils/request.ts)。
+其中，`@/utils/request.ts` 是基于 axios 的封装，便于统一处理 POST，GET 等请求参数，请求头，以及错误提示信息等。具体可以参看 [request.ts](https://github.com/wetrial/wetrial/blob/master/src/request.ts)。
 
 例如在 services 中的一个请求用户信息的例子：
 
 ```ts
 // services/user.ts
-import request from '../utils/request';
+import get from '@/utils/request';
 
 export async function query() {
-  return request('/api/users');
+  return get('/api/users');
 }
 
 export async function queryCurrent() {
-  return request('/api/currentUser');
+  return get('/api/currentUser');
 }
 
 // models/user.ts
@@ -57,7 +57,7 @@ effects: {
 
 ### 处理异步请求
 
-在处理复杂的异步请求的时候，很容易让逻辑混乱，陷入嵌套陷阱，所以 Ant Design Pro 的底层基础框架 [dva](https://github.com/dvajs/dva) 使用 `effect` 的方式来管理同步化异步请求：
+在处理复杂的异步请求的时候，很容易让逻辑混乱，陷入嵌套陷阱，所以 Wetrial-Template 的底层基础框架 [dva](https://github.com/dvajs/dva) 使用 `effect` 的方式来管理同步化异步请求：
 
 ```js
 effects: {
