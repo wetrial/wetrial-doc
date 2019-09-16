@@ -4,6 +4,13 @@ title: 更新日志
 type: 其他
 ---
 
+### 2.0.13
+
+`2019-09-16`
+
+- 复杂对象验证规则 getObjRequire 支持自动增加必填标记
+- 修复 MultipleFormElement 中 InputNumber 可以输入非数字
+
 ### 2.0.12
 
 `2019-08-20`
