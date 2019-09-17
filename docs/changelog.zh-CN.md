@@ -4,12 +4,14 @@ title: 更新日志
 type: 其他
 ---
 
-### 2.0.13
+### 2.0.14
 
 `2019-09-16`
 
-- 复杂对象验证规则 getObjRequire 支持自动增加必填标记
+- 复杂对象验证规则 getObjRequire 更名为 getComplexRequire 支持自动增加必填标记
+- 增加 验证规则 getComplexSame，表示 复杂对象一致性(都空、都不为空)
 - 修复 MultipleFormElement 中 InputNumber 可以输入非数字
+- 修复 withQueryPaged 组件的 setDefaultFilter 设置的默认值在查询、重置的时候丢失的问题
 
 ### 2.0.12
 
