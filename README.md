@@ -16,5 +16,5 @@ Then visit http://localhost:9000 .
 ### Deploy
 
 ```
-$ yarn site
+$ yarn build
 ```
