@@ -14,14 +14,14 @@ jobs:
 
     - stage: release
       if: tag IS present
-      script: yarn build-site
+      script: yarn build
       deploy:
         provider: pages
         skip_cleanup: true
         # 在项目仪表盘的 Settings -> Environment Variables 中配置
         github_token: $GITHUB_TOKEN
         # 将 _site 目录下的内容推送到默认的 gh-pages 分支上，并不会连带 _site 目录一起
-        local_dir: _site
+        local_dir: public
         # 自定义域名
         fqdn: $CUSTOM_DOMAIN
         name: $GIT_NAME
