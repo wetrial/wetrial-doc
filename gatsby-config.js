@@ -71,7 +71,7 @@ module.exports = {
         start_url: './?utm_source=homescreen',
         theme_color: '#002140',
         background_color: '#001529',
-        icon: 'src/images/favicon.png',
+        icon: 'src/images/favicon.svg',
       },
     },
     'gatsby-plugin-sitemap',

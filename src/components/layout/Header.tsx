@@ -3,7 +3,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import { Link } from 'gatsby';
 import { Row, Col, Icon, Input, Menu, Button, Modal, Popover, message, Dropdown } from 'antd';
 import * as utils from '../utils';
-import LOGO_URL from '../../../public/icons/icon-48x48.svg';
+import LOGO_URL from '../../images/icon-48x48.svg';
 
 // const { Option } = Select;
 
