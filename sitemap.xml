@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://dev.xxgtalk.cn/docs/authority-management-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/available-script-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/biz-icon-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/build-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/changelog-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/deploy-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/error-handle-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/faq-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/from-community-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/getting-started-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/i18n-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/import-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/block-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/mock-api-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/new-component-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/new-page-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/resource-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/server-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/style-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/team-style-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/theme-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/ui-test-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/docs/uset-typescript-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/css/change-theme-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/index-cn</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dev.xxgtalk.cn/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+</urlset>
