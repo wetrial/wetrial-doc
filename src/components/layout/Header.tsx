@@ -23,7 +23,7 @@ function initDocSearch(locale: 'zh-CN' | 'en-US') {
   }
   const lang = locale === 'zh-CN' ? 'cn' : 'en';
   docSearch({
-    apiKey: 'dfba5eddecb719460b9fd232af57748d',
+    apiKey: '8a99c38a7f830dab618ddc7c17fe0d38',
     indexName: 'wetrial', // pro_ant_design
     inputSelector: '#search-box input',
     algoliaOptions: { facetFilters: [`tags:${lang}`] },
