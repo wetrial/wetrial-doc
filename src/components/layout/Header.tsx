@@ -351,7 +351,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                           rel="noopener noreferrer"
                           href="http://es6.ruanyifeng.com/"
                         >
-                          ES2015
+                          ES6
                         </a>
                       </Menu.Item>
                     </Menu>
