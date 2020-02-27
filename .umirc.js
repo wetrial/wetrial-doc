@@ -22,7 +22,7 @@ export default {
     ],
   ],
   doc: {
-    mode: 'site',
+    mode: 'doc', // site
     logo: 'https://avatars2.githubusercontent.com/u/40448889?s=66&v=4',
     title: 'Wetrial Doc',
     include: ['docs'],
@@ -36,5 +36,6 @@ export default {
         headScripts: ['https://hm.baidu.com/hm.js?a3636d814818bccb02a7991d78ba3048'],
       },
     ],
+    ['@umijs/plugin-qiankun'],
   ],
 };

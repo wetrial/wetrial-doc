@@ -1,7 +1,7 @@
 ---
 title: 代码规范
 group:
-  title: 其他
+  title: 团队风格
   path: /style
   order: 1
 ---
