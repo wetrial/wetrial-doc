@@ -1,4 +1,1 @@
-{
-  "main.js": "render-page.js",
-  "main.js.map": "render-page.js.map"
-}
+{"name":"wetrial-doc","short_name":"wetrial-doc","display":"fullscreen","scope":"/","start_url":"./?homescreen=true","orientation":"portrait"}
