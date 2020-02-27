@@ -1,109 +1,79 @@
 {
-  "name": "wetrial-site",
-  "version": "0.0.6",
-  "description": "site of Wetrial",
-  "homepage": "http://pro.ant.design/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wetrial/wetrial-site"
+  "name": "wetrial-doc",
+  "version": "0.0.1",
+  "description": "develop doc",
+  "keywords": [
+    "wetrial develop doc"
+  ],
+  "authors": {
+    "name": "xiexingen",
+    "email": "1002275364@qq.com"
   },
-  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.com/"
+  },
+  "repository": "https://github.com/wetrial/wetrial-doc",
+  "homepage": "https://github.com/wetrial/wetrial-doc",
   "scripts": {
-    "build": "gatsby build",
-    "dev": "rimraf .cache && gatsby develop",
-    "gh-pages": "cp  CNAME ./public/ && gh-pages -d public",
-    "lint": "npm run lint:js && npm run lint:style",
-    "lint-staged": "lint-staged",
-    "lint-staged:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
-    "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
-    "lint:fix": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src --fix",
-    "lint:style": "stylelint \"site/**/*.less\" --syntax less",
-    "precommit": "npm run lint-staged",
-    "prettier": "prettier --write **/**",
-    "serve": "gatsby serve",
-    "presite": "cross-env NODE_OPTIONS=--max-old-space-size=4096 npm run build",
-    "site": "npm run gh-pages",
+    "start": "npm run dev",
+    "dev": "cross-env REACT_APP_ENV=dev father-doc dev",
+    "build:doc": "father-doc build",
     "patch": "yarn version --patch && git push origin master && git push origin --tags",
     "minor": "yarn version --minor && git push origin master && git push origin --tags",
     "major": "yarn version --major && git push origin master && git push origin --tags",
-    "start": "gatsby develop",
-    "test": "npm run lint"
-  },
-  "pre-commit": [
-    "precommit"
-  ],
-  "lint-staged": {
-    "**/*.less": "stylelint --syntax less",
-    "**/*.{js,jsx,less}": [
-      "prettier --write",
-      "git add"
-    ],
-    "**/*.{js,jsx}": "npm run lint-staged:js"
+    "lint": "yarn lint:js && yarn lint:style && yarn lint:prettier",
+    "lint-staged": "lint-staged",
+    "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx ",
+    "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src && yarn lint:style",
+    "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./",
+    "lint:prettier": "check-prettier lint",
+    "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less",
+    "prettier": "prettier -c --write \"**/*\""
   },
   "dependencies": {
-    "antd": "latest",
-    "axios": "^0.18.0",
-    "classnames": "^2.2.6",
-    "delegate": "^3.2.0",
-    "docsearch.js": "^2.6.3",
-    "gatsby": "^2.2.7",
-    "gatsby-plugin-google-analytics": "^2.0.20",
-    "gatsby-plugin-sitemap": "^2.1.0",
-    "himalaya": "^1.1.0",
-    "lodash-decorators": "^6.0.0",
-    "lz-string": "^1.4.4",
-    "moment": "^2.24.0",
-    "node-fetch": "^2.5.0",
-    "prop-types": "^15.7.2",
-    "rc-drawer-menu": "^1.1.0",
-    "rc-queue-anim": "^1.3.1",
-    "rc-scroll-anim": "^2.0.2",
-    "rc-tween-one": "^2.2.3",
-    "react": "^16.4.2",
-    "react-copy-to-clipboard": "^5.0.0",
-    "react-document-title": "^2.0.3",
-    "react-dom": "^16.4.2",
-    "react-github-button": "^0.1.11",
-    "react-intl": "^2.4.0",
-    "react-media": "^1.9.2"
+    "@ant-design/icons": "^4.0.0-alpha.19",
+    "antd": "^4.0.0-rc.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "peerDependencies": {
+    "@ant-design/icons": "*",
+    "antd": "*",
+    "react": "*",
+    "react-dom": "*"
   },
   "devDependencies": {
-    "@types/classnames": "^2.2.7",
-    "@types/react-document-title": "^2.0.3",
-    "@types/react-intl": "^2.3.17",
-    "@umijs/fabric": "^1.1.3",
-    "core-js": "^2.6.5",
-    "cross-env": "^5.1.1",
-    "eslint": "^5.3.0",
-    "fs-extra": "^7.0.0",
-    "gatsby-plugin-antd": "^2.0.2",
-    "gatsby-plugin-catch-links": "^2.0.0",
-    "gatsby-plugin-google-analytics": "^2.0.0",
-    "gatsby-plugin-less": "^2.0.6",
-    "gatsby-plugin-manifest": "^2.0.9",
-    "gatsby-plugin-netlify": "^2.0.0",
-    "gatsby-plugin-offline": "^2.0.16",
-    "gatsby-plugin-react-helmet": "^3.0.2",
-    "gatsby-plugin-typescript": "^2.0.13",
-    "gatsby-remark-copy-linked-files": "^2.0.0",
-    "gatsby-remark-embed-snippet": "^3.0.0",
-    "gatsby-remark-prismjs": "^3.0.2",
-    "gatsby-source-filesystem": "^2.0.0",
-    "gatsby-transformer-remark-antd": "^1.0.0",
-    "gh-pages": "^1.0.0",
-    "github-slugger": "^1.2.1",
-    "less": "^3.9.0",
-    "lint-staged": "^7.0.5",
-    "lz-string": "^1.4.4",
-    "mdast-util-to-string": "^1.0.5",
-    "nprogress": "^0.2.0",
-    "pre-commit": "^1.2.2",
-    "prettier": "^1.14.0",
-    "prismjs": "^1.15.0",
-    "stylelint": "^9.4.0",
-    "stylelint-config-css-modules": "^1.4.0",
-    "stylelint-config-standard": "^18.3.0",
-    "typescript": "^3.5.2"
+    "@types/jest": "^24.0.15",
+    "@umijs/fabric": "^2.0.2",
+    "babel-plugin-import": "^1.12.0",
+    "check-prettier": "^1.0.3",
+    "cross-env": "^6.0.3",
+    "del": "^5.1.0",
+    "father-doc": "^1.0.0-beta.5",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.7",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.5",
+    "umi": "^2.13.3"
   },
-  "title": "Wetrial"
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.less": "stylelint --syntax less",
+    "**/*.{js,jsx,ts,tsx}": "npm run lint-staged:js",
+    "**/*.{js,jsx,tsx,ts,less,md,json}": [
+      "prettier --write"
+    ]
+  },
+  "checkFiles": [
+    "src/**/*.js*",
+    "src/**/*.ts*"
+  ],
+  "license": "MIT"
 }

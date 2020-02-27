@@ -49,29 +49,12 @@ module.exports = {
     'max-len': ['warn', { code: 400 }],
     'no-unused-expressions': ['error', { allowShortCircuit: true }],
     'class-methods-use-this': 0, //  ["error", { "exceptMethods": ["setDefaultFilter"] }]
-    'react/sort-comp': [
-      1,
-      {
-        order: [
-          'static-properties',
-          'static-methods',
-          'type-annotations',
-          'propTypes',
-          'conventional-private-properties',
-          'state',
-          'private-instance-fields',
-          'lifecycle',
-          '/^on.+$/',
-          '/^handle.+$/',
-          '/^get.+$/',
-          'everything-else',
-          'render',
-        ],
-      },
-    ],
+    'react/sort-comp': 0,
     'dot-notation': 0,
+    'no-return-await': 0,
   },
   globals: {
+    REACT_APP_ENV: true,
     page: true,
   },
 };

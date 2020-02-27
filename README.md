@@ -1,20 +1,3 @@
-# Wetrial-Template Site
+# wetrial 开发文档
 
-The documentation source of [Wetrial](https://github.com/wetrial/wetrial/blob/master).
-
-### Development
-
-```bash
-$ git clone git@github.com:wetrial/wetrial-template.git
-$ cd wetrial-template
-$ yarn
-$ yarn start
-```
-
-Then visit http://localhost:9000 .
-
-### Deploy
-
-```
-$ yarn build
-```
+包含样式、开发说明文档、开发遵循的规则、代码风格、教程等
