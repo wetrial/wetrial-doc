@@ -6,9 +6,10 @@
     <title>wetrial</title>
     <script type="text/javascript">
         var matchs = window.location.pathname.match(/(\/[^\/]+)/gi);
+        var hash = window.location.hash;
         var baseRoot = matchs[0];
         var path = matchs.slice(1).join('');
-        location.href = baseRoot + "?path=" + path;
+        location.href = baseRoot + "?path=" + path + '&hash=' + hash;
     </script>
 </head>
 
