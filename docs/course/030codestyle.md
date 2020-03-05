@@ -1,6 +1,7 @@
 ---
 title: 代码规范lint
 order: 40
+toc: menu
 group:
   title: 教程
   path: /course

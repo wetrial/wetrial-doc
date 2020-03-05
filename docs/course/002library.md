@@ -1,6 +1,7 @@
 ---
 title: 常用组件篇
 order: 10
+toc: menu
 group:
   title: 教程
   path: /course

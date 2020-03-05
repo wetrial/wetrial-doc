@@ -1,6 +1,7 @@
 ---
 title: typescript知识
 order: 20
+toc: menu
 group:
   title: 教程
   path: /course

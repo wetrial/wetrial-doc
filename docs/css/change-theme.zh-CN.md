@@ -1,6 +1,7 @@
 ---
 title: 在线更换主题
 order: 2
+toc: menu
 group:
   title: 样式
   path: /css

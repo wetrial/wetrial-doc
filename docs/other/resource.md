@@ -1,6 +1,7 @@
 ---
 title: 资源
 order: 5
+toc: menu
 group:
   title: 其他
   path: /other

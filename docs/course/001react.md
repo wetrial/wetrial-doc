@@ -1,6 +1,7 @@
 ---
 title: react基础知识
 order: 1
+toc: menu
 group:
   title: 教程
   path: /course

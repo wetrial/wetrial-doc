@@ -1,6 +1,7 @@
 ---
 title: 页面规范
 order: 1
+toc: menu
 group:
   title: 设计
   path: /design

@@ -1,6 +1,7 @@
 ---
 title: 部署
 order: 3
+toc: menu
 group:
   title: 其他
   path: /other

@@ -1,6 +1,7 @@
 ---
 title: 区块
 order: 1
+toc: menu
 group:
   title: 其他
   path: /other

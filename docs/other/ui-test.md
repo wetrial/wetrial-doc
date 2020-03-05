@@ -1,6 +1,7 @@
 ---
 title: 测试
 order: 6
+toc: menu
 group:
   title: 其他
   path: /other

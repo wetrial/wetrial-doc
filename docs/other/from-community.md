@@ -1,6 +1,7 @@
 ---
 title: 社区精选组件
 order: 4
+toc: menu
 group:
   title: 其他
   path: /other

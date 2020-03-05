@@ -1,6 +1,7 @@
 ---
 title: 样式使用
 order: 1
+toc: menu
 group:
   title: 样式
   path: /css
