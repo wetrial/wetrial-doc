@@ -1,7 +1,7 @@
 import { defineConfig } from 'umi';
 // const { REACT_APP_ENV } = process.env;
 
-const isSite = REACT_APP_ENV !== 'dev';
+// const isSite = REACT_APP_ENV !== 'dev';
 
 export default defineConfig({
   // history: 'hash',
