@@ -6,7 +6,7 @@ import { defineConfig } from 'umi';
 export default defineConfig({
   // history: 'hash',
   hash: true,
-  dynamicImport: {},
+  // dynamicImport: {},
   base: '/wetrial-doc',
   publicPath: '/wetrial-doc/',
   mode: 'site', // site | doc
