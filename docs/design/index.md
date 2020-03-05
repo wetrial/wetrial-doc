@@ -1,9 +1,14 @@
 ---
 title: 页面规范
+order: 1
 group:
   title: 设计
   path: /design
-  order: 1
+  order: 2
+nav:
+  title: 设计
+  path: /design
+  order: 2
 ---
 
 # 页面规范

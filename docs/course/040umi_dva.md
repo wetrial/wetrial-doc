@@ -1,9 +1,14 @@
 ---
 title: umi&dva知识篇
+order: 50
 group:
   title: 教程
   path: /course
-  order: 40
+  order: 6
+nav:
+  title: 教程
+  path: /course
+  order: 6
 ---
 
 # umi 知识篇

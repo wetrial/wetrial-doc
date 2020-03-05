@@ -1,9 +1,14 @@
 ---
 title: 代码规范lint
+order: 40
 group:
   title: 教程
   path: /course
-  order: 30
+  order: 6
+nav:
+  title: 教程
+  path: /course
+  order: 6
 ---
 
 # ts 代码规范

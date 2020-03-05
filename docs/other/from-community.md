@@ -1,9 +1,14 @@
 ---
 title: 社区精选组件
+order: 4
 group:
   title: 其他
   path: /other
-  order: 2
+  order: 5
+nav:
+  title: 其他
+  path: /other
+  order: 5
 ---
 
 # 社区精选组件

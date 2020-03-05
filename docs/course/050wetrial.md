@@ -1,9 +1,14 @@
 ---
 title: wetrial相关库
+order: 60
 group:
   title: 教程
   path: /course
-  order: 50
+  order: 6
+nav:
+  title: 教程
+  path: /course
+  order: 6
 ---
 
 # wetrial 相关库

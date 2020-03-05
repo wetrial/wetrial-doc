@@ -1,9 +1,14 @@
 ---
 title: 区块
+order: 1
 group:
   title: 其他
   path: /other
-  order: 1
+  order: 5
+nav:
+  title: 其他
+  path: /other
+  order: 5
 ---
 
 # 区块

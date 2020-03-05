@@ -1,9 +1,14 @@
 ---
 title: 测试
+order: 6
 group:
   title: 其他
   path: /other
-  order: 1
+  order: 5
+nav:
+  title: 其他
+  path: /other
+  order: 5
 ---
 
 UI 测试是项目研发流程中的重要一环，有效的测试用例可以梳理业务需求，保证研发的质量和进度，让工程师可以放心的重构代码和新增功能。

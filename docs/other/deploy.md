@@ -1,9 +1,14 @@
 ---
 title: 部署
+order: 3
 group:
   title: 其他
   path: /other
-  order: 2
+  order: 5
+nav:
+  title: 其他
+  path: /other
+  order: 5
 ---
 
 # 部署

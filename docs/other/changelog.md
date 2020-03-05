@@ -1,9 +1,14 @@
 ---
 title: 更新日志
+order: 2
 group:
   title: 其他
   path: /other
-  order: 1
+  order: 5
+nav:
+  title: 其他
+  path: /other
+  order: 5
 ---
 
 ### 3.0.0

@@ -1,6 +1,12 @@
 ---
 title: 代码规范
+order: 1
+toc: menu
 group:
+  title: 团队风格
+  path: /style
+  order: 1
+nav:
   title: 团队风格
   path: /style
   order: 1

@@ -1,9 +1,14 @@
 ---
 title: typescript知识
+order: 20
 group:
   title: 教程
   path: /course
-  order: 10
+  order: 6
+nav:
+  title: 教程
+  path: /course
+  order: 6
 ---
 
 # typescript 知识

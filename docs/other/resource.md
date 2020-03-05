@@ -1,9 +1,14 @@
 ---
 title: 资源
+order: 5
 group:
   title: 其他
   path: /other
-  order: 1
+  order: 5
+nav:
+  title: 其他
+  path: /other
+  order: 5
 ---
 
 Ant Design 配套的设计资源。
