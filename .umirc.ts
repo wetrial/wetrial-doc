@@ -6,6 +6,7 @@ import { defineConfig } from 'umi';
 export default defineConfig({
   // history: 'hash',
   hash: true,
+  dynamicImport: {},
   base: '/wetrial-doc',
   publicPath: '/wetrial-doc/',
   mode: 'site', // site | doc
@@ -37,5 +38,5 @@ export default defineConfig({
       }
     }(window.g_history))`,
   ],
-  plugins: ['@umijs/plugin-qiankun'],
+  //plugins: ['@umijs/plugin-qiankun'],
 });
