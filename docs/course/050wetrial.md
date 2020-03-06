@@ -1,7 +1,6 @@
 ---
 title: wetrial相关库
 order: 60
-toc: menu
 group:
   title: 教程
   path: /course

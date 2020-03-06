@@ -1,7 +1,6 @@
 ---
 title: 代码规范
 order: 1
-toc: menu
 group:
   title: 团队风格
   path: /style
@@ -58,7 +57,7 @@ export interface IRouteMenu {
 
 ## 引用组件顺序
 
-先引用外部组件库,再引用系统级全局库(最外层的先引用)、再引用当前组件块级组件、最后是 css 样式
+先引用外部组件库, 再引用系统级全局库(最外层的先引用)、再引用当前组件块级组件、最后是 css 样式
 
 ```tsx | pure
 import * as React from 'react';
@@ -104,8 +103,8 @@ if (condition) {
 
 - 类名: 大驼峰式风格，字母和数字，例如：AbcTest。禁止汉字、特殊符号，禁止非大驼峰式风格
 - 函数名、变量名: 小驼峰式风格，字母和数字，例如：abcTest。禁止汉字、特殊符号，禁止非小驼峰式风格，例如 snake_case 等
-- 常量字符串:全大写风格，大写字母、数字和下划线，单词之间以下划线分隔，例如：ABC_TEST。禁止汉字、特殊符号、小写字母
-- 组件、页面:文件夹大驼峰式风格、文件名(除 index、layout 外)其他一律大写
+- 常量字符串: 全大写风格，大写字母、数字和下划线，单词之间以下划线分隔，例如：ABC_TEST。禁止汉字、特殊符号、小写字母
+- 组件、页面: 文件夹大驼峰式风格、文件名(除 index、layout 外)其他一律大写
 
 ```bash
 ├─src
@@ -140,7 +139,8 @@ if (condition) {
 - 组件中回调属性：使用 onXxx
 
 ```tsx | pure
-<Button onClick={...}></Button>
+<Button onClick={... }></Button>
+
 ```
 
 - onXXX 绑定的事件：使用 handleXXXX
@@ -327,17 +327,20 @@ const editionDisplayNameMergeCell = memoizeOne(mergeCells);
 
 ## 防止 xss 攻击
 
-- input，textarea 等标签，不要直接把 html 文本直接渲染在页面上,使用 xssb 等过滤之后再输出到标签上;
+- input，textarea 等标签，不要直接把 html 文本直接渲染在页面上, 使用 xssb 等过滤之后再输出到标签上;
 
 ```tsx | pure
 import { html2text } from 'xss';
 render(){
   <div
   dangerouslySetInnerHTML={{
+
     __html: html2text(htmlContent)
+
   }}
 />
 }
+
 ```
 
 ## 在组件中获取真实 dom
@@ -360,7 +363,7 @@ class MyComponent extends React.Component<IProps, IState> {
 
 ## 减少魔法数字
 
-- 写代码的时候尽量减少一些未知含义的数字，尽量用枚举,例如 type === 0 的时候做了一些操作，让人不知所以然。
+- 写代码的时候尽量减少一些未知含义的数字，尽量用枚举, 例如 type === 0 的时候做了一些操作，让人不知所以然。
 
 ```tsx | pure
 if (type !== 0) {
@@ -412,7 +415,7 @@ interface IProps {
 
 ## 使用私有属性取代 state 状态
 
-- 对于一些不需要控制 ui 的状态属性，我们可以直接绑到 this 上， 即私有属性，没有必要弄到 this.state 上，不然会触发渲染机制，造成性能浪费 例如请求翻页数据的时候,我们都会有个变量
+- 对于一些不需要控制 ui 的状态属性，我们可以直接绑到 this 上， 即私有属性，没有必要弄到 this.state 上，不然会触发渲染机制，造成性能浪费 例如请求翻页数据的时候, 我们都会有个变量
 
 ```tsx | pure
 // bad
@@ -422,10 +425,11 @@ state: IState = {
 };
 
 // good
-queryParams:Record<string,any> = {
+queryParams: Record<string, any> = {
   pageNo:1,
   pageSize:10
 }
+
 ```
 
 ## 代码细粒度的思考

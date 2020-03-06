@@ -1,7 +1,6 @@
 ---
 title: umi&dva知识篇
 order: 50
-toc: menu
 group:
   title: 教程
   path: /course

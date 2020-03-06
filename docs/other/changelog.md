@@ -1,7 +1,6 @@
 ---
 title: 更新日志
 order: 2
-toc: menu
 group:
   title: 其他
   path: /other

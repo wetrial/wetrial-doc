@@ -1,7 +1,6 @@
 ---
 title: 测试
 order: 6
-toc: menu
 group:
   title: 其他
   path: /other
@@ -20,7 +19,7 @@ Wetrial-Template 封装了一套简洁易用的 React 单元测试和 E2E 测试
 $ npm run test:all  # 执行所有测试
 ```
 
-<img style="box-shadow:none;margin:0;" src="https://gw.alipayobjects.com/zos/rmsportal/EFKJzIswQgWNJzDQNpKr.png" width="700" />
+<img style="box-shadow:none; margin:0; " src="https://gw.alipayobjects.com/zos/rmsportal/EFKJzIswQgWNJzDQNpKr.png" width="700" />
 
 下面简单介绍如何在项目中书写你的业务测试用例。
 
@@ -122,7 +121,7 @@ $ npm test .e2e.js
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/LGCXopksUYMUhjRgdYSz.png" width="700" />
 
-> 注意，本地测试 e2e 用例需要启动 `npm start`，否则会报 `Failed: navigation error` 的错误。
+> 注意，本地测试 e2e 用例需要启动 `npm start` ，否则会报 `Failed: navigation error` 的错误。
 
 ## watch 模式
 
@@ -146,11 +145,11 @@ $ npm test -- --coverage
 
 ## 聚焦和忽略用例
 
-使用 `xit()` 取代 `it()` 可以暂时忽略用例，`fit()` 可以聚焦当前用例并忽略其他所有用例。这两个方法可以帮助你在开发过程中只关注当前需要的用例。
+使用 `xit()` 取代 `it()` 可以暂时忽略用例， `fit()` 可以聚焦当前用例并忽略其他所有用例。这两个方法可以帮助你在开发过程中只关注当前需要的用例。
 
 ## 接入集成测试服务
 
-如果需要接入 travis、CircleCI、Gitlab CI 等集成测试环境，可以参考本仓库提供的 `.travis.yml`。
+如果需要接入 travis、CircleCI、Gitlab CI 等集成测试环境，可以参考本仓库提供的 `.travis.yml` 。
 
 注意 e2e 测试需要集成环境支持 electron，如果不支持，你可以使用 `npm test .test.js` 单独运行单元测试。
 

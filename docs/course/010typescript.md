@@ -1,7 +1,6 @@
 ---
 title: typescript知识
 order: 20
-toc: menu
 group:
   title: 教程
   path: /course
@@ -79,7 +78,8 @@ const style = require('./index.less');
 
 ```tsx |pure
 error TS2339: Property 'loading' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Compone
-nt<{}, ComponentState>> & Readonly<{ childr...'.
+nt<{}, ComponentState>> & Readonly<{ childr... '.
+
 ```
 
 这是因为 props 的类型没有通过检查，以下是正确的方式
@@ -105,7 +105,7 @@ class FormComponent extends React.Component<IFormComponentProps> {
 
 #### 没有描述文件的仓库
 
-在实际使用有些库并没有相关的 d.ts,这个时候我们可以直接在使用的文件中定义，以高德地图为例。
+在实际使用有些库并没有相关的 d.ts, 这个时候我们可以直接在使用的文件中定义，以高德地图为例。
 
 ```tsx |pure
 import React from 'react';

@@ -1,7 +1,6 @@
 ---
 title: 在线更换主题
 order: 2
-toc: menu
 group:
   title: 样式
   path: /css
@@ -16,17 +15,17 @@ nav:
 
 ## 背景
 
-Pro 中为了简化 less 的使用，启用了 [`css-module`](https://github.com/css-modules/css-modules)， 在项目中使用的话 `css-module` 是一个很棒的特性，他可以解决困扰每个程序员的问题，如何起一个有意义但是不重复的 css 类名。
+Pro 中为了简化 less 的使用，启用了 [ `css-module` ](https://github.com/css-modules/css-modules)， 在项目中使用的话 `css-module` 是一个很棒的特性，他可以解决困扰每个程序员的问题，如何起一个有意义但是不重复的 css 类名。
 
 但是对于组件 css-module 就会增加成本，发布组件的时候如果还想保持 less 源码的话就是一个更麻烦的事情了。首先即使不保留 less。每次组件的类名都会变化。这样就无法用 css 的来修改组件的样式。
 
-> 某些不希望被修改样式的组件可以使用 `css-module`，每次版本都是新的 className，有效防止篡改。
+> 某些不希望被修改样式的组件可以使用 `css-module` ，每次版本都是新的 className，有效防止篡改。
 
 在线换主题的插件主要是由通过在浏览器中编译 less 来实现的，首先他找到项目所有的 less，并且将其中带有 less 的变量的选择器抽出。组合成一个新的 less，也就是 color.less，并且在浏览器中通过 less.js 来编译他，然后覆盖掉原本的属性。它是由以下三个步骤完成的：
 
 ## 合并 less
 
-这个功能主要靠一个插件来实现，`antd-pro-merge-less`，这个插件会扫描 src 中所有的 less，并且将其合并为一个 `./temp/ant-design-pro.ess`， 这个插件也是问题最多的插件，会造成部分 less 的引用失效，
+这个功能主要靠一个插件来实现， `antd-pro-merge-less` ，这个插件会扫描 src 中所有的 less，并且将其合并为一个 `./temp/ant-design-pro.ess` ， 这个插件也是问题最多的插件，会造成部分 less 的引用失效，
 
 ## 转化 css-module
 
@@ -60,7 +59,7 @@ const getLocalIdent = (context, localIdentName, localName) => {
 
 这样只要抽取 less 的时候通过同样的方式生成类名就可以保证两者是相同的.
 
-> 这里使用了 [`postcss-less-engine`](https://www.npmjs.com/package/postcss-less-engine)，可以将 less 生成语法树，并且将其修改。
+> 这里使用了 [ `postcss-less-engine` ](https://www.npmjs.com/package/postcss-less-engine)，可以将 less 生成语法树，并且将其修改。
 
 ## 抽取 less 变量
 
@@ -75,7 +74,7 @@ const getLocalIdent = (context, localIdentName, localName) => {
 ></script>
 ```
 
-需要更换主题时通过调用 `window.less.modifyVars`， 即可编译引用的 less。
+需要更换主题时通过调用 `window.less.modifyVars` ， 即可编译引用的 less。
 
 ```js
 // 因为编译时间过长，并且会堵塞渲染，请一定要增加提示。

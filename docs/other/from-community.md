@@ -1,7 +1,6 @@
 ---
 title: 社区精选组件
 order: 4
-toc: menu
 group:
   title: 其他
   path: /other
@@ -54,18 +53,18 @@ nav:
 
 <style>
 .markdown table td:first-child {
-  font-weight: 500;
-  width: 20%;
-  background: #fcfcfc;
+  font-weight: 500; 
+  width: 20%; 
+  background: #fcfcfc; 
 }
 .markdown table td > a:not(:last-child) {
-  margin-right: 18px;
+  margin-right: 18px; 
 }
 .markdown table td > a:not(:last-child):after {
-  content: '|';
-  color: #bbb;
-  margin: 0 6px 0 8px;
-  pointer-events: none;
-  position: absolute;
+  content: '|'; 
+  color: #bbb; 
+  margin: 0 6px 0 8px; 
+  pointer-events: none; 
+  position: absolute; 
 }
 </style>

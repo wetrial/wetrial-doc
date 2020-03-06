@@ -1,7 +1,6 @@
 ---
 title: 样式使用
 order: 1
-toc: menu
 group:
   title: 样式
   path: /css
@@ -44,7 +43,7 @@ export default ({ title }) => <div className={styles.title}>{title}</div>;
 
 用 less 写样式好像没什么改变，只是类名比较简单（实际项目中也是这样），js 文件的改变就是在设置 className 时，用一个对象属性取代了原来的字符串，属性名跟 less 文件中对应的类名相同，对象从 less 文件中引入。
 
-在上面的样式文件中，`.title` 只会在本文件生效，你可以在其他任意文件中使用同名选择器，也不会对这里造成影响。不过有的时候，我们就是想要一个全局生效的样式呢？可以使用 `:global`。
+在上面的样式文件中， `.title` 只会在本文件生效，你可以在其他任意文件中使用同名选择器，也不会对这里造成影响。不过有的时候，我们就是想要一个全局生效的样式呢？可以使用 `:global` 。
 
 ```css |pure
 // example.less
@@ -120,7 +119,7 @@ body {
 
 ### src/utils/utils.less
 
-这里可以放置一些工具函数供调用，比如清除浮动 `.clearfix`。
+这里可以放置一些工具函数供调用，比如清除浮动 `.clearfix` 。
 
 ### 模块样式
 
@@ -128,11 +127,11 @@ body {
 
 #### 通用模块级
 
-例如 `src/layouts/BasicLayout.less`，里面包含一些基本布局的样式，被 `src/layouts/BasicLayout.ts` 引用，项目中使用这种布局的页面就不需要再关心整体布局的设置。如果你的项目中需要使用其他布局，也建议将布局相关的 js 和 less 放在这里 `src/layouts`。
+例如 `src/layouts/BasicLayout.less` ，里面包含一些基本布局的样式，被 `src/layouts/BasicLayout.ts` 引用，项目中使用这种布局的页面就不需要再关心整体布局的设置。如果你的项目中需要使用其他布局，也建议将布局相关的 js 和 less 放在这里 `src/layouts` 。
 
 #### 页面级
 
-具体页面相关的样式，例如 `src/routes/Dashborad/Monitor.less`，里面的内容仅和本页面的内容相关。一般情况下，如果不是页面内容特别复杂，有了前面全局样式、通用模块样式的配合，这里要写的应该不多。
+具体页面相关的样式，例如 `src/routes/Dashborad/Monitor.less` ，里面的内容仅和本页面的内容相关。一般情况下，如果不是页面内容特别复杂，有了前面全局样式、通用模块样式的配合，这里要写的应该不多。
 
 #### 组件级
 

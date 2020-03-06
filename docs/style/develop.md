@@ -1,7 +1,6 @@
 ---
 title: 开发思想篇
 order: 2
-toc: menu
 group:
   title: 团队风格
   path: /style

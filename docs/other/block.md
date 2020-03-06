@@ -1,7 +1,6 @@
 ---
 title: 区块
 order: 1
-toc: menu
 group:
   title: 其他
   path: /other
@@ -23,7 +22,7 @@ nav:
 
 > 交互式的 umi block list 需要 umi@2.8.7 及以上版本
 
-Wetrial-Template 中，使用 umi 进行区块管理。当我们需要安装一个区块的时候，我们需要知道区块有哪些。 umi 提供了 umi block list 的方式来查看区块,你可以选中区块名来进行安装。
+Wetrial-Template 中，使用 umi 进行区块管理。当我们需要安装一个区块的时候，我们需要知道区块有哪些。 umi 提供了 umi block list 的方式来查看区块, 你可以选中区块名来进行安装。
 
 添加别的区块也非常容易，在命令行中输入：
 
@@ -35,7 +34,7 @@ umi block add [block url]
 
 ## 添加到路由
 
-默认情况下，添加的区块路由为 `/[区块名]`。如果希望添加到对应路径上，可以使用 `--path` 参数指定路由：
+默认情况下，添加的区块路由为 `/[区块名]` 。如果希望添加到对应路径上，可以使用 `--path` 参数指定路由：
 
 ```bash
 umi block add editor --path=your/path/here
