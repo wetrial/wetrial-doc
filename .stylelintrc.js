@@ -7,6 +7,6 @@ module.exports = {
     'order/properties-order': null,
     'declaration-bang-space-before': null,
     'function-name-case': null,
-    'unicode-bom': 0,
+    'unicode-bom': null,
   },
 };

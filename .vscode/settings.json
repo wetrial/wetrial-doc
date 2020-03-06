@@ -1,4 +1,5 @@
 {
+  "less.validate": true,
   "eslint.validate": [
     "javascript",
     // jsx
@@ -20,7 +21,8 @@
   "eslint.alwaysShowStatus": true,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
+    "source.fixAll": true
   },
   "[markdown]": {
     // 快速补全
