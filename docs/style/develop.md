@@ -9,6 +9,7 @@ nav:
   title: 团队风格
   path: /style
   order: 1
+legacy: /style/develop
 ---
 
 # 开发思想篇

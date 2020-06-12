@@ -1,6 +1,8 @@
 ---
-title: 关于本站
-order: 1
+hero:
+  actions:
+    - text: 关于本站
+      link: /getting-started
 footer: 本文档湖南微试云前端团队维护
 ---
 
