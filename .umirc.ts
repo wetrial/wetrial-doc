@@ -13,7 +13,7 @@ export default defineConfig({
   },
   //dynamicImport: {},
   base: '/doc',
-  publicPath: '/doc/',
+  publicPath: '/wetrial-doc/',
   mode: 'site', // site | doc
   favicon: 'https://avatars2.githubusercontent.com/u/40448889?s=66&v=4',
   logo: 'https://avatars2.githubusercontent.com/u/40448889?s=66&v=4',
