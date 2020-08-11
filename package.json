@@ -32,9 +32,13 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
+    "@wetrial/component": "^0.4.7",
+    "@wetrial/core": "^3.3.1",
+    "@wetrial/hooks": "^3.0.4",
     "antd": "^4.3.3",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "use-merge-value": "^1.0.2"
   },
   "peerDependencies": {
     "@ant-design/icons": "*",

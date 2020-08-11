@@ -9,7 +9,7 @@ export default defineConfig({
   },
   hash: true,
   history: {
-    type: 'hash',
+    type: 'browser',
   },
   //dynamicImport: {},
   base: '/doc',
